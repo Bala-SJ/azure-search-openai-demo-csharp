@@ -1,0 +1,74 @@
+azd env new sja2-gpt-t05
+{
+  "infra": {
+    "parameters": {
+      "openAIApiKey": "57b36575f8f942ba803066015614218d"
+    }
+  }
+}
+
+The key is from the SJApp2, OpenAI resource
+
+Loading azd .env file from current environment
+
+APPLICATIONINSIGHTS_CONNECTION_STRING="InstrumentationKey=0dc57bd7-cb27-4c88-9856-3520b048989a;IngestionEndpoint=https://eastus2-3.in.applicationinsights.azure.com/;LiveEndpoint=https://eastus2.livediagnostics.monitor.azure.com/;ApplicationId=a43c8cff-e77e-4616-bb76-234dd2e17dcd"
+APPLICATIONINSIGHTS_NAME="appi-anwzuqq5ukaho"
+AZURE_COMPUTERVISION_RESOURCE_GROUP=""
+AZURE_COMPUTERVISION_SERVICE=""
+AZURE_COMPUTERVISION_SERVICE_ENDPOINT=""
+AZURE_CONTAINER_ENVIRONMENT_NAME="cae-anwzuqq5ukaho"
+AZURE_CONTAINER_REGISTRY_ENDPOINT="cranwzuqq5ukaho.azurecr.io"
+AZURE_CONTAINER_REGISTRY_NAME="cranwzuqq5ukaho"
+AZURE_CONTAINER_REGISTRY_RESOURCE_GROUP="cranwzuqq5ukaho"
+AZURE_ENV_NAME="sja2-gpt-t05"
+AZURE_FORMRECOGNIZER_RESOURCE_GROUP="rg-sja2-gpt-t05"
+AZURE_FORMRECOGNIZER_SERVICE="cog-fr-anwzuqq5ukaho"
+AZURE_FORMRECOGNIZER_SERVICE_ENDPOINT="https://cog-fr-anwzuqq5ukaho.cognitiveservices.azure.com/"
+AZURE_KEY_VAULT_ENDPOINT="https://kv-anwzuqq5ukaho.vault.azure.net/"
+AZURE_KEY_VAULT_NAME="kv-anwzuqq5ukaho"
+AZURE_KEY_VAULT_RESOURCE_GROUP="rg-sja2-gpt-t05"
+AZURE_LOCATION="eastus2"
+AZURE_OPENAI_CHATGPT_DEPLOYMENT="chat"
+AZURE_OPENAI_CHATGPT_MODEL_NAME="gpt-35-turbo"
+AZURE_OPENAI_CHATGPT_MODEL_VERSION="0613"
+AZURE_OPENAI_EMBEDDING_DEPLOYMENT="embedding"
+AZURE_OPENAI_ENDPOINT="https://cog-anwzuqq5ukaho.openai.azure.com/"
+AZURE_OPENAI_RESOURCE_GROUP="rg-sja2-gpt-t05"
+AZURE_OPENAI_RESOURCE_LOCATION="eastus2"
+AZURE_OPENAI_SERVICE="cog-anwzuqq5ukaho"
+AZURE_RESOURCE_GROUP="rg-sja2-gpt-t05"
+AZURE_SEARCH_INDEX="gptkbindex"
+AZURE_SEARCH_SERVICE="gptkb-anwzuqq5ukaho"
+AZURE_SEARCH_SERVICE_ENDPOINT="https://gptkb-anwzuqq5ukaho.search.windows.net/"
+AZURE_SEARCH_SERVICE_RESOURCE_GROUP="rg-sja2-gpt-t05"
+AZURE_STORAGE_ACCOUNT="stanwzuqq5ukaho"
+AZURE_STORAGE_BLOB_ENDPOINT="https://stanwzuqq5ukaho.blob.core.windows.net/"
+AZURE_STORAGE_CONTAINER="content"
+AZURE_STORAGE_RESOURCE_GROUP="rg-sja2-gpt-t05"
+AZURE_SUBSCRIPTION_ID="cfab2687-b1b8-4ccb-b7a4-71241199bbcb"
+AZURE_TENANT_ID="b2746f6d-b9c5-46d2-b313-459d81b54396"
+OPENAI_EMBEDDING_DEPLOYMENT="text-embedding-ada-002"
+SERVICE_FUNCTION_IDENTITY_PRINCIPAL_ID="a5386b4c-e7ff-4e8f-8449-cff29ac585ae"
+SERVICE_WEB_IDENTITY_NAME="id-web-anwzuqq5ukaho"
+SERVICE_WEB_NAME="ca-web-anwzuqq5ukaho"
+SERVICE_WEB_RESOURCE_EXISTS="false"
+USE_AOAI="true"
+USE_VISION="false"
+
+
+dotnet run --project app/prepdocs/PrepareDocs/PrepareDocs.csproj       
+            './data/*.pdf'       
+            --storageendpoint https://stanwzuqq5ukaho.blob.core.windows.net/       
+            --container content       
+            --searchendpoint https://gptkb-anwzuqq5ukaho.search.windows.net/       
+            --searchindex gptkbindex       
+            --formrecognizerendpoint https://cog-fr-anwzuqq5ukaho.cognitiveservices.azure.com/       
+            --tenantid b2746f6d-b9c5-46d2-b313-459d81b54396 
+            --openaiendpoint https://cog-anwzuqq5ukaho.openai.azure.com/ 
+            --embeddingmodel embedding 
+            --verbose
+
+export USE_AOAI="true"
+dotnet run --project app/prepdocs/PrepareDocs/PrepareDocs.csproj './data/test_01/*.pdf' --storageendpoint https://stanwzuqq5ukaho.blob.core.windows.net/ --container content --searchendpoint https://gptkb-anwzuqq5ukaho.search.windows.net/  --searchindex gptkbindex  --formrecognizerendpoint https://cog-fr-anwzuqq5ukaho.cognitiveservices.azure.com/  --tenantid b2746f6d-b9c5-46d2-b313-459d81b54396 --openaiendpoint https://cog-anwzuqq5ukaho.openai.azure.com/ --embeddingmodel embedding --verbose
+
+
