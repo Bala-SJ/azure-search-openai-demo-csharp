@@ -25,10 +25,9 @@
                      AutoCycle="true" TData="Image" Context="image"
                      ItemsSource=@_images AutoCycleTime=@TimeSpan.FromSeconds(3)>
             <ItemTemplate>
-                @* <div class="d-flex flex-grow-1">
-                    <MudImage Fluid="true" Src=@image.Src Elevation="5" ObjectPosition="ObjectPosition.Center"
-                              Alt=@($"{image.Alt} (generated with Bing Create).") Class="rounded-lg mx-auto my-auto" />
-                </div> *@
+                <div class="d-flex">
+                    <MudImage Src=@image.Src Elevation="5" Class="rounded-lg mx-auto my-auto" />
+                </div>
             </ItemTemplate>
         </MudCarousel>
         <!-- <div class="full-width pt-6 text-align-center">
