@@ -5,7 +5,8 @@ WORKDIR /app
 EXPOSE 8080
 EXPOSE 443
 
-FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+#FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY ["Directory.Build.props", "."]
 COPY ["Directory.Packages.props", "."]
@@ -19,6 +20,14 @@ RUN dotnet restore "backend/MinimalApi.csproj"
 WORKDIR "/src/backend"
 FROM build AS publish
 RUN dotnet publish "MinimalApi.csproj" -o /app
+
+
+ARG kvendpoint
+ENV env_kvendpoint $kvendpoint
+
+ARG kvname
+ENV env_kvname $kvname
+
 
 FROM base AS final
 WORKDIR /app
